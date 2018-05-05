@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var path = require("path");
+
 
 
 // Import the model (burger.js) to use its database functions.
@@ -21,7 +21,7 @@ router.post("/", function(req, res) {
   burger.create([
     "burger_name", "eaten"
   ], [
-    req.body.burger_name, req.body.eaten
+    req.body.burger_name, false
   ], function() {
     res.redirect("/");
   });
@@ -39,13 +39,7 @@ router.put("/:id", function(req, res) {
   });
 });
 
-router.delete("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
 
-  burger.delete(condition, function() {
-    res.redirect("/");
-  });
-});
 
 // Export routes for server.js to use.
 module.exports = router;
