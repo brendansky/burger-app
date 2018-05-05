@@ -1,1 +1,1 @@
-# burger-app
+This application allows users to choose their favorite styles of burgers, and then devour them. 
